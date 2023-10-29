@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>  <link rel="stylesheet" href="book.css">
+</head>
+
+<body>
+  <h1 id="title">Bookclub Registration Form</h1>
+  <p id="description">Please fill out this form with the required information</p>
+  <form id="survey-form">
+    <fieldset>
+      <legend>Your details</legend>
+      <div class="form-group">
+        <label id="name-label" for="name">
+          Enter Your Name:
+          <input placeholder="First and last name" id="name" type="text" class="form-group" required />
+        </label>
+      </div>
+      <div class="form-group">
+        <label id="email-label" for="email">
+          Enter Your Email:
+          <input placeholder="Email" id="email" type="email" class="form-group" required />
+        </label>
+      </div>
+      <div class="form-group">
+        <label id="number-label" for="number">
+          Input your age (years):
+          <input placeholder="Age" id="number" type="number" name="age" min="14" max="115" class="form-group" required />
+        </label>
+      </div>
+      <div class="form-group">
+        <label>Gender</label>
+        <select id="dropdown">
+          <option value=""""> Please select your gender</option> 
+          <option value="Female">Female</option> 
+          <option value="Male">Male</option> 
+          <option value="Other">Other
+          </option>
+        </select>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Your preferences in books</legend>
+      <div class="form-group">
+        <label>Do you prefer...</label>
+        <label for="print-books">
+          <input id="print-books" type="radio" name="book-type" class="inline" value="print-books" />
+          Print Books</label>
+        <label for="e-book">
+          <input id="e-book" type="radio" name="book-type" class="inline" value="e-book" />
+          E-Books</label>
+        <label for="audio">
+          <input id="audio" type="radio" name="book-type" class="inline" value="audio" />
+          Audio</label>
+      </div>
+      <div class="form-group">
+        <label for="preference">What types of books you like?</label>
+        <textarea id="preference" name="preference" rows="5" cols="30" placeholder="Fiction, Science Fiction or another "></textarea>
+      </div>
+      <div class="form-group"> <label for="terms-and-conditions" name="terms-and-conditions">
+          <input id="terms-and-conditions" type="checkbox" required name="terms-and-conditions" class="inline" value="checkbox" /> I accept the terms and conditions
+        </label>
+      </div>
+      <div class="form-group"> <label for="additional-information" name="additional-information">
+          <input id="additional-information" type="checkbox" required name="additional-information" class="inline" value="checkbox" /> Would you like to receive additional information about new books and promotions from our partners?
+        </label>
+      </div>
+    </fieldset>
+    <div class="g-recaptcha" data-sitekey="6Lf7jsgoAAAAAHkFdvbd3LQr7HRfSmVyyXad3237"></div>
+    <br>
+    <div class="form-group"> <input type="submit" id="submit" value="Submit" /> </div>
+  </form>
+ </body>
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</html>

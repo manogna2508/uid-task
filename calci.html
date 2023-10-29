@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Price Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: pink;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #calculator-container {
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 36px; /* Adjust the font size as needed */
+            margin-bottom: 20px; /* Add some space below the title */
+        }
+
+        #book-calculator {
+            background-color: #ff99cc;
+            padding: 50px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        #book-calculator label, #book-calculator select, #book-calculator input {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        #book-calculator select, #book-calculator input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        #book-calculator input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        #book-calculator input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+         #price {
+              font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div id="calculator-container">
+        <br>
+        <br>
+        <h1>Book Price Calculator</h1>
+
+        <form id="book-calculator">
+            <label for="title">Book Title:</label>
+            <input type="text" id="title" required>
+
+            <label for="author">Author:</label>
+            <input type="text" id="author" required>
+
+            <label for="format">Format:</label>
+            <select id="format">
+                <option value="hardcover">Hardcover</option>
+                <option value="paperback">Paperback</option>
+                <option value="ebook">E-Book</option>
+            </select>
+
+            <label for="condition">Condition:</label>
+            <select id="condition">
+                <option value="new">New</option>
+                <option value="used">Used</option>
+            </select>
+
+            <label for="edition">Edition:</label>
+            <input type="text" id="edition">
+
+            <label for="market-demand">Market Demand:</label>
+            <select id="market-demand">
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+            </select>
+
+            <input type="submit" value="Calculate Price">
+        </form>
+
+        <div id="result">
+            <strong>Estimated Price:</strong> <span id="price">-</span>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("book-calculator").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const title = document.getElementById("title").value;
+            const author = document.getElementById("author").value;
+            const format = document.getElementById("format").value;
+            const condition = document.getElementById("condition").value;
+            const edition = document.getElementById("edition").value;
+            const marketDemand = document.getElementById("market-demand").value;
+
+            let price = 10;
+
+            if (format === "hardcover") {
+                price += 5;
+            } else if (format === "ebook") {
+                price -= 2;
+            }
+
+            if (condition === "used") {
+                price -= 3;
+            }
+
+            document.getElementById("price").textContent = "$" + price.toFixed(2);
+        });
+    </script>
+</body>
+</html>
